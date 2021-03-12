@@ -23,8 +23,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Compile
+        run: cp source-files/* dest-files/
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Push new files
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           # Optional but recommended
           # Defaults to "Apply automatic changes"
